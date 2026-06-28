@@ -6,6 +6,30 @@ React is strongest when UI is created from data.
 
 Instead of manually writing six product cards, you keep product information in an array and let React render one card per item. This is your first real taste of declarative UI: describe what should appear for the current data.
 
+## Files Added And Modified In This Story
+
+### New Files Added
+
+- `src/data/fallbackProducts.js`
+  Holds the local product array. This is plain JavaScript data, not React UI.
+
+- `src/components/ProductCard.jsx`
+  Defines the reusable product card component. It receives one `product` through props and renders that product.
+
+### Existing Files Modified
+
+- `src/App.jsx`
+  Changed from the blank Story 01 screen into the catalog page. It imports `fallbackProducts`, loops over the array with `map`, and renders `ProductCard` for each item.
+
+- `src/App.css`
+  Adds layout and card styles for the catalog page.
+
+- `src/index.css`
+  Adds global foundation styles like background color, default text color, and `box-sizing`.
+
+- `docs/concepts/02-local-products-and-jsx.md`
+  Expanded with explanation of the new files, render flow, and debugging steps.
+
 ## Important Files
 
 ### `src/data/fallbackProducts.js`
