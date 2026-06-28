@@ -29,3 +29,13 @@ Use these after completing Story 03.
 23. How would you add a new sort option without changing `ProductCard`?
 24. What is the difference between user input state and product data?
 25. When should state stay local to a component?
+26. Which files changed in Story 03?
+27. Why did `ProductCard.jsx` not need to change for filtering and sorting?
+28. What does `searchTerm.trim().toLowerCase()` protect against?
+29. Why does `categories` use `new Set(...)`?
+30. What does `selectedCategory === 'All' || product.category === selectedCategory` mean?
+31. Why does `visibleProducts` render instead of `fallbackProducts`?
+32. What happens after `setSearchTerm(event.target.value)` runs?
+33. Why is the no-results message part of good UI state handling?
+34. How would you prove that sorting did not change the original data file?
+35. In this exact implementation, which values are stored and which values are recalculated?
