@@ -7,10 +7,17 @@ The finished app already exists in `React Learning`. This repo starts almost emp
 ## How To Use These Stories
 
 1. Pick the next story from `story-map.md`.
-2. Open that story file from `docs/stories/`.
-3. Type the code yourself. Do not copy full files from the finished app first.
-4. Run the app after every small step.
-5. When stuck, compare with the matching file in `React Learning/frontend/src`.
+2. Read the matching concept note from `docs/concepts/`.
+3. Open that story file from `docs/stories/`.
+4. Type the code yourself. Do not copy full files from the finished app first.
+5. Run the app after every small step.
+6. When stuck, compare with the matching file in `React Learning/frontend/src`.
+
+## Folder Guide
+
+- `story-map.md` is the ordered roadmap.
+- `stories/` tells you what to build step by step.
+- `concepts/` explains why each step matters, which files are important, and what React concept you are touching.
 
 ## Rules For Learning
 
