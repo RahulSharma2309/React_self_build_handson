@@ -29,3 +29,13 @@ Use these after completing Story 07.
 23. How can too many custom hooks make code harder instead of easier?
 24. What does this story teach about separation of concerns?
 25. How does this story prepare the app for theme and Redux?
+26. Why do custom hooks return data and functions instead of JSX?
+27. How does React track hook state by call order?
+28. What bug can happen if a hook is called conditionally?
+29. What should `useProducts` expose to the page?
+30. What should `useProductFilters` expose to the page?
+31. Why is debounce useful for search?
+32. How would you debug a hook with a stale effect dependency?
+33. What makes a hook name too vague?
+34. How do custom hooks improve component readability?
+35. How would you explain custom hooks in an interview?

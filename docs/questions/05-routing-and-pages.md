@@ -29,3 +29,13 @@ Use these after completing Story 05.
 23. What should be tested after adding a route?
 24. Why is browser refresh behavior important for routed pages?
 25. How does this story prepare the app for checkout and orders pages?
+26. Why is the URL considered state?
+27. What app behavior should still work with browser back and forward buttons?
+28. What is the difference between route not found and product not found?
+29. Why should a product detail page read from `useParams` instead of local component state?
+30. What happens if `Link` is used outside `BrowserRouter`?
+31. Why are pages a better home for route-level data lookup?
+32. What is the public-contract risk of changing URLs later?
+33. How would you debug a link that changes the URL but renders the wrong page?
+34. How would you debug a product detail page that always says not found?
+35. How would you explain `BrowserRouter`, `Routes`, `Route`, `Link`, and `useParams` together?

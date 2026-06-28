@@ -29,3 +29,13 @@ Use these after completing Story 06.
 23. What is the difference between backend state and React state?
 24. How does this story change the meaning of `fallbackProducts`?
 25. How would you test the app with the backend turned off?
+26. What does it mean for render to be pure?
+27. Why can fetching in the component body cause repeated requests?
+28. What does an empty effect dependency array mean?
+29. When should an effect depend on `slug`?
+30. Why are loading, error, and data separate state concerns?
+31. Why is an empty array not the same thing as loading?
+32. What responsibilities belong in `http.js`?
+33. What responsibilities belong in `catalogApi.js`?
+34. Why is `await getProducts()` more readable than an inline Axios URL?
+35. How would you explain the frontend gateway boundary in an interview?

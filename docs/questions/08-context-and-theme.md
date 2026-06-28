@@ -29,3 +29,13 @@ Use these after completing Story 08.
 23. How can unnecessary context updates cause extra renders?
 24. Why is theme UI state different from product data?
 25. How does this story prepare you for app-wide state decisions?
+26. What is prop drilling?
+27. Why is Context not a replacement for all props?
+28. What does the raw context object do?
+29. What responsibility belongs in `ThemeProvider`?
+30. Why is provider value design important?
+31. Why can a custom hook produce better errors than direct `useContext` calls?
+32. Why does `localStorage` not replace React state?
+33. What does it mean that `localStorage` stores strings?
+34. Why can fast-changing Context values cause performance concerns?
+35. How would you explain Context vs Redux in an interview?
