@@ -6,6 +6,14 @@ React is strongest when UI is created from data.
 
 Instead of manually writing six product cards, you keep product information in an array and let React render one card per item. This is your first real taste of declarative UI: describe what should appear for the current data.
 
+The senior-level idea is separation of concerns:
+
+- data file owns product facts,
+- card component owns how one product looks,
+- app component owns the list rendering.
+
+When these responsibilities stay separate, the code grows without becoming confusing.
+
 ## Files Added And Modified In This Story
 
 ### New Files Added
@@ -70,6 +78,42 @@ Why use `export const`? Because another file can import exactly this data by nam
 import { fallbackProducts } from './data/fallbackProducts.js'
 ```
 
+### Named Export vs Default Export
+
+This file uses a named export:
+
+```js
+export const fallbackProducts = [...]
+```
+
+That means imports must use the exported name:
+
+```js
+import { fallbackProducts } from './data/fallbackProducts.js'
+```
+
+If you wrote only:
+
+```js
+const fallbackProducts = [...]
+```
+
+then the data would be private to that file. `App.jsx` could not import it.
+
+If you wrote:
+
+```js
+export default fallbackProducts
+```
+
+then another file would import it without braces:
+
+```js
+import fallbackProducts from './data/fallbackProducts.js'
+```
+
+Named export is useful for learning because the import name must match the exported name. It makes the data flow explicit.
+
 ### `src/components/ProductCard.jsx`
 
 This file teaches the component idea.
@@ -104,6 +148,28 @@ Line by line:
 - `alt=""` means this image is decorative for now because the product name is already shown as text.
 - `{product.category}`, `{product.name}`, and `{product.summary}` insert JavaScript values into JSX.
 - `product.price.toLocaleString('en-IN')` formats `2499` as `2,499` for Indian number formatting.
+
+### Props In Depth
+
+Props are read-only inputs to a component.
+
+Parent:
+
+```jsx
+<ProductCard product={product} />
+```
+
+Child:
+
+```jsx
+export function ProductCard({ product }) {
+```
+
+The parent decides what data to pass. The child decides how to display it.
+
+The child should not modify `product`. React components are easier to reason about when props are treated as immutable.
+
+If `ProductCard` imported `fallbackProducts` directly, it would become tightly coupled to one data source. Passing props keeps it reusable.
 
 ### `src/App.jsx`
 
@@ -144,6 +210,41 @@ Read it slowly:
 4. `key={product.id}` gives React stable identity for the list item.
 5. `product={product}` passes the current product object as a prop.
 
+### Why Keys Matter
+
+React uses keys to track list items across renders.
+
+Imagine a list changes from:
+
+```text
+Arduino
+Raspberry Pi
+ESP32
+```
+
+to:
+
+```text
+Raspberry Pi
+ESP32
+```
+
+React needs to know which item was removed. A stable key helps it do that correctly.
+
+Good key:
+
+```jsx
+key={product.id}
+```
+
+Weak key:
+
+```jsx
+key={index}
+```
+
+Index keys can cause bugs when items are inserted, removed, or reordered because the index changes even when the real item is the same.
+
 ### `src/App.css`
 
 This file styles the page and the card.
@@ -158,6 +259,24 @@ Important classes:
 - `.product-card__body`, `__title`, `__summary`, and `__price` style the text inside the card.
 
 The double-underscore class names are just a naming style. They make it clear that those classes belong to the product card.
+
+## Render Flow In Detail
+
+Initial render:
+
+1. `main.jsx` renders `<App />`.
+2. `App.jsx` imports `fallbackProducts`.
+3. `App.jsx` imports `ProductCard`.
+4. `App` returns JSX.
+5. Inside the JSX, `fallbackProducts.map(...)` runs.
+6. The first product becomes `<ProductCard product={firstProduct} />`.
+7. React calls `ProductCard` with that prop.
+8. `ProductCard` returns JSX for one card.
+9. React repeats that for every product.
+10. React creates DOM nodes.
+11. CSS styles those DOM nodes.
+
+This is important: `ProductCard` is not manually called by you like a normal function. You describe `<ProductCard />` in JSX, and React calls it as part of rendering.
 
 ### `src/index.css`
 
@@ -176,6 +295,28 @@ Using `map` teaches how arrays become UI.
 Passing `product={product}` teaches props: parent components pass data down to child components.
 
 Adding `key={product.id}` teaches React identity. React uses keys to understand which list item is which between renders.
+
+## When This Pattern Is Fit
+
+Use this data-to-components pattern when:
+
+- you have a list of similar items,
+- each item has the same display shape,
+- the data might later come from an API,
+- you want one reusable component per item.
+
+Avoid hard-coding repeated JSX because it makes updates painful and hides the data structure.
+
+## When This Pattern Needs To Evolve
+
+This pattern is simple now, but later it may evolve:
+
+- Story 03 filters the array before rendering.
+- Story 05 links each card to a route.
+- Story 06 replaces local data with API data.
+- Story 09 adds cart actions from each card.
+
+The clean separation in Story 02 makes those changes easier.
 
 ## Render Flow To Debug
 
@@ -236,6 +377,15 @@ Examples:
 - Do not use array index as the key when each product has a stable `id`.
 - Do not make `ProductCard` import the whole product list. A card should receive one product.
 - Do not put prices or names directly in JSX if they already exist in data.
+- Do not store formatted price as the source data if you later need numeric sorting.
+- Do not forget braces for named imports.
+- Do not mutate props inside `ProductCard`.
+
+## Interview Explanation
+
+If asked about this story:
+
+> I separated product data from UI. The product array is exported from a data module. `App` imports that array and maps over it to render a `ProductCard` for each item. The card receives one product via props and renders its fields. Each card gets `key={product.id}` so React can track list identity. This pattern scales naturally when the data later comes from an API or needs filtering.
 
 ## Check Yourself
 
