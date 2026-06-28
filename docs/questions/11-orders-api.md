@@ -29,3 +29,13 @@ Use these after completing Story 11.
 23. Which approach is safer for checkout: optimistic or confirmed? Why?
 24. Why should API errors be converted into user-readable messages?
 25. How does this story complete the frontend-to-backend loop?
+26. What are the states in a submit lifecycle?
+27. Why should submit be disabled while submitting?
+28. Why should cart remain intact after failed submit?
+29. Why is an empty orders list not an error?
+30. What does the gateway hide from the frontend?
+31. How would you inspect the POST request body?
+32. How would you debug duplicate orders?
+33. What makes checkout different from a casual optimistic UI action?
+34. Why should request code stay centralized in `ordersApi.js`?
+35. How would you explain confirmed UI in an interview?

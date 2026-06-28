@@ -29,3 +29,13 @@ Use these after completing Story 10.
 23. How should error messages help keyboard and screen reader users?
 24. What should happen after a successful checkout in the next story?
 25. How does this story connect UI state, global state, and user actions?
+26. Why should `event.preventDefault()` be used on form submit?
+27. What form data is local state?
+28. What checkout data comes from Redux?
+29. What checkout values are derived?
+30. Why should validation include cart contents?
+31. Why should refs not store input values?
+32. What is a good ref use case in checkout?
+33. What should the order object contain?
+34. Why should checkout not clear the cart before backend success?
+35. How would you explain checkout state flow in an interview?

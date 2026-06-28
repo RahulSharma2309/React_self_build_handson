@@ -34,3 +34,13 @@ Use these after completing Story 12.
 28. What bugs would you look for before calling the app complete?
 29. What would you refactor only after seeing repeated patterns?
 30. What are the top five React concepts this full rebuild taught you?
+31. What is the difference between a render error and an API error?
+32. Why do error boundaries not replace loading/error request state?
+33. What question should you ask before using `memo`?
+34. When can `useCallback` make code worse?
+35. What folder should backend request code live in?
+36. What folder should route-level screens live in?
+37. What folder should reusable behavior live in?
+38. How would you test keyboard accessibility?
+39. How would you trace product data from backend to UI?
+40. How would you explain the whole app architecture in an interview?

@@ -29,3 +29,13 @@ Use these after completing Story 09.
 23. Why should not every local state value move into Redux?
 24. What is the tradeoff of adding Redux to a small app?
 25. Can you trace Add to Cart from click to UI update step by step?
+26. Why is cart considered business state?
+27. Why should cart rules live in a slice instead of components?
+28. What values should be stored in cart state?
+29. What cart values should be derived?
+30. Why should totals not be duplicated in state?
+31. What makes an action name clear?
+32. Why should reducers not perform network requests?
+33. How does Redux help avoid prop drilling?
+34. How would you explain Redux Toolkit's value over classic Redux?
+35. How would you describe the full Redux data flow in an interview?
