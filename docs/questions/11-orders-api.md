@@ -1,41 +1,50 @@
-# 11 — Orders API Questions
+# 11 — API Submit Flow Interview Questions
 
-Use these after completing Story 11.
+Use these to prepare for generic interviews about POST requests and async submit workflows.
 
-## Questions
+## HTTP And API Boundaries
 
 1. What is the difference between a GET request and a POST request?
-2. Why does checkout use POST?
-3. Why should order API code live in `src/api/ordersApi.js`?
-4. What should `createOrder(order)` return?
-5. What should `getOrders()` return?
-6. Why should components not write raw Axios calls everywhere?
-7. What is submit loading state?
-8. Why should the submit button be disabled while submitting?
-9. What should happen if order creation fails?
-10. Why should the cart be cleared only after backend success?
-11. What could go wrong if the cart is cleared before the response returns?
-12. What should the success UI show after an order is placed?
-13. Why does `OrdersPage` need loading, error, empty, and success states?
-14. How does the gateway route an order request?
-15. Why does the frontend not call `Orders.Api` directly?
-16. What is the shape of the order object sent to the backend?
-17. What is the shape of an order returned from the backend?
-18. How would you debug a 400 error from order creation?
-19. How would you debug a gateway connection failure?
-20. How would you confirm the order was stored?
-21. In an interview, how would you explain the full order submission flow?
-22. What is the difference between optimistic UI and confirmed UI?
-23. Which approach is safer for checkout: optimistic or confirmed? Why?
-24. Why should API errors be converted into user-readable messages?
-25. How does this story complete the frontend-to-backend loop?
-26. What are the states in a submit lifecycle?
-27. Why should submit be disabled while submitting?
-28. Why should cart remain intact after failed submit?
-29. Why is an empty orders list not an error?
-30. What does the gateway hide from the frontend?
-31. How would you inspect the POST request body?
-32. How would you debug duplicate orders?
-33. What makes checkout different from a casual optimistic UI action?
-34. Why should request code stay centralized in `ordersApi.js`?
-35. How would you explain confirmed UI in an interview?
+2. When should a form submit use POST?
+3. Why should API request code live in a dedicated API module?
+4. What should a create function return after a successful POST?
+5. What should a list/read function return after a successful GET?
+6. Why should components avoid writing raw HTTP calls everywhere?
+7. What does a gateway or backend-for-frontend hide from the client?
+8. Why should the frontend avoid knowing every internal backend service?
+9. How would you inspect a POST request body in the browser?
+10. Scenario: an API works in a REST client but fails in the browser. What would you compare?
+
+## Submit Lifecycle
+
+11. What are the common states in a submit lifecycle?
+12. What is submit loading state?
+13. Why should a submit button be disabled while submitting?
+14. What should happen if the create request fails?
+15. What should a success UI show after a create request?
+16. Why should API errors be converted into user-readable messages?
+17. Scenario: a user double-clicks submit and creates duplicates. How would you prevent it?
+18. Scenario: the backend returns a 400 validation error. How would you surface it?
+19. Scenario: the network fails mid-submit. What state should the UI preserve?
+20. How would you confirm that submitted data was actually stored?
+
+## Optimistic vs Confirmed UI
+
+21. What is optimistic UI?
+22. What is confirmed UI?
+23. When is optimistic UI appropriate?
+24. When is confirmed UI safer?
+25. What could go wrong if important local state is cleared before the server confirms success?
+26. Why might payment, checkout, or account-change workflows prefer confirmed UI?
+27. Why is an empty results list not the same as a failed request?
+28. Why should a read page handle loading, error, empty, and success states separately?
+29. How does a submit flow complete the frontend-to-backend loop?
+30. How would you explain confirmed UI in an interview?
+
+## Interview Practice
+
+31. Explain the full flow from form submit to backend success UI.
+32. Explain how you would centralize API request code.
+33. Explain how you would prevent duplicate submissions.
+34. Explain how you would debug a failed POST request.
+35. Explain how you would design user feedback for a slow submit request.

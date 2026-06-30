@@ -1,41 +1,55 @@
-# 06 — Backend Data And Effects Questions
+# 06 — Effects, API Calls, And Async UI Interview Questions
 
-Use these after completing Story 06.
+Use these to prepare for generic interviews about side effects and data fetching.
 
-## Questions
+## Effects
 
 1. What is a side effect in React?
 2. Why is fetching data considered a side effect?
-3. Why should a network request not run directly inside the component body?
-4. What does `useEffect` do?
-5. When does an effect with an empty dependency array run?
-6. What can go wrong if an effect dependency array is incorrect?
-7. Why do we need loading state?
-8. Why do we need error state?
-9. What should the UI show before the product request finishes?
-10. What should the UI show if the request fails?
-11. Why create an `api` folder?
-12. What is the purpose of `http.js`?
-13. Why centralize the API base URL?
-14. What is Axios doing for us?
-15. Why should components call `getProducts()` instead of `axios.get(...)` directly?
-16. What is the gateway API's job?
-17. Why should the React app call the gateway instead of every microservice directly?
-18. What is fallback data, and why is it helpful for learning?
-19. How would you debug whether products came from the backend or fallback data?
-20. How would you debug a CORS error?
-21. In an interview, how would you explain the lifecycle of fetching products?
-22. Why should async errors become user-friendly messages?
-23. What is the difference between backend state and React state?
-24. How does this story change the meaning of `fallbackProducts`?
-25. How would you test the app with the backend turned off?
-26. What does it mean for render to be pure?
-27. Why can fetching in the component body cause repeated requests?
-28. What does an empty effect dependency array mean?
-29. When should an effect depend on `slug`?
-30. Why are loading, error, and data separate state concerns?
-31. Why is an empty array not the same thing as loading?
-32. What responsibilities belong in `http.js`?
-33. What responsibilities belong in `catalogApi.js`?
-34. Why is `await getProducts()` more readable than an inline Axios URL?
-35. How would you explain the frontend gateway boundary in an interview?
+3. What does it mean for render to be pure?
+4. Why should a network request not run directly inside a component body?
+5. What does `useEffect` do?
+6. When does an effect with an empty dependency array run?
+7. What does it mean when an effect depends on a route parameter or prop?
+8. What can go wrong if an effect dependency array is incorrect?
+9. Scenario: an API request fires infinitely. What would you inspect?
+10. Scenario: a screen shows stale data after a parameter changes. What would you check?
+
+## Async UI State
+
+11. Why do async screens need loading state?
+12. Why do async screens need error state?
+13. Why are loading, error, and data separate state concerns?
+14. Why is an empty array not the same thing as loading?
+15. What should the UI show before a request finishes?
+16. What should the UI show if a request fails?
+17. What should the UI show when a request succeeds with no rows?
+18. Why should async errors be converted into user-readable messages?
+19. Scenario: the browser console shows an error but the UI is blank. What is missing?
+20. How would you test a screen with the backend turned off?
+
+## API Layer
+
+21. Why create a dedicated API or services folder in a frontend app?
+22. What responsibilities belong in a shared HTTP client module?
+23. What responsibilities belong in feature-specific API modules?
+24. Why centralize a base URL and timeout configuration?
+25. What does an HTTP client library like Axios provide over raw request code?
+26. Why should components call named API functions instead of inline URLs?
+27. How does an API layer improve readability and testability?
+28. What is the purpose of a backend-for-frontend or gateway API?
+29. Why should a frontend avoid knowing every internal backend service URL?
+30. How would you explain frontend/backend boundaries in an interview?
+
+## Debugging And Scenarios
+
+31. How would you debug whether data came from a network response or fallback data?
+32. How would you debug a CORS error?
+33. How would you inspect request and response payloads in the browser?
+34. Scenario: a request succeeds in Postman but fails in the browser. What might be different?
+35. Scenario: a request is slow. What UI states should protect the user experience?
+36. Scenario: a response shape changes. Which layer should ideally absorb the change?
+37. How would you explain the lifecycle of fetching data in a React screen?
+38. How would you prevent duplicate fetch logic across multiple pages?
+39. When might a custom hook be a better home for fetching behavior?
+40. What are the risks of hiding all request failures behind silent fallback data?

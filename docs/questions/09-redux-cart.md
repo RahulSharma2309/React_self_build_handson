@@ -1,41 +1,50 @@
-# 09 — Redux Cart Questions
+# 09 — Redux And Global State Interview Questions
 
-Use these after completing Story 09.
+Use these to prepare for generic interviews about Redux Toolkit and shared business state.
 
-## Questions
+## Global State Decisions
 
-1. What problem does Redux solve in this app?
-2. Why is the cart a better Redux candidate than the theme?
-3. What is global state?
-4. Which components need to read or update cart state?
-5. What is a Redux store?
-6. What is a Redux action?
-7. What is a reducer?
-8. What is a selector?
-9. What is a slice in Redux Toolkit?
-10. What does `createSlice` generate for you?
-11. Why does Redux Toolkit allow reducer code that looks like mutation?
-12. What is Immer doing behind the scenes?
-13. Why create `src/app/store.js`?
-14. Why wrap the app with Redux `Provider`?
-15. What does `dispatch(addToCart(product))` mean?
-16. Why should `ProductCard` dispatch an action instead of editing cart state directly?
-17. What should happen if the same product is added twice?
-18. How should cart subtotal be calculated?
-19. Should subtotal be stored in Redux or derived from items? Why?
-20. How would you debug a cart count that does not update in the header?
-21. How would you debug a reducer that changes the wrong quantity?
-22. In an interview, how would you compare `useReducer`, Context, and Redux?
-23. Why should not every local state value move into Redux?
-24. What is the tradeoff of adding Redux to a small app?
-25. Can you trace Add to Cart from click to UI update step by step?
-26. Why is cart considered business state?
-27. Why should cart rules live in a slice instead of components?
-28. What values should be stored in cart state?
-29. What cart values should be derived?
-30. Why should totals not be duplicated in state?
-31. What makes an action name clear?
-32. Why should reducers not perform network requests?
-33. How does Redux help avoid prop drilling?
-34. How would you explain Redux Toolkit's value over classic Redux?
-35. How would you describe the full Redux data flow in an interview?
+1. What problem does Redux solve?
+2. What is global state?
+3. When should state stay local instead of moving to a global store?
+4. What makes state “business state” rather than simple UI state?
+5. Scenario: multiple distant components must read and update the same data. What options do you have?
+6. Why is a complex shared workflow often a better Redux candidate than a simple theme toggle?
+7. What tradeoff does Redux add to a small app?
+8. Why should not every local state value move into Redux?
+9. How does Redux help avoid prop drilling?
+10. How would you compare local state, Context, `useReducer`, and Redux?
+
+## Redux Core
+
+11. What is a Redux store?
+12. What is a Redux action?
+13. What is a reducer?
+14. What is a selector?
+15. What does `dispatch(...)` mean?
+16. What is a slice in Redux Toolkit?
+17. What does `createSlice` generate?
+18. Why does Redux Toolkit allow reducer code that looks like mutation?
+19. What does Immer do behind the scenes?
+20. Why should reducers be pure?
+
+## State Shape And Derived Values
+
+21. What kinds of values should be stored in global state?
+22. What kinds of values should be derived from global state?
+23. Why should totals, counts, or summaries often be derived instead of stored?
+24. What bug can happen when derived totals are duplicated in state?
+25. What makes an action name clear?
+26. Why should reducers not perform network requests?
+27. Scenario: a count shown in a header does not update after an action. What would you inspect?
+28. Scenario: a reducer updates the wrong item. How would you debug it?
+29. Scenario: two components show different versions of shared data. What could be wrong?
+30. How would you trace a button click through Redux to a UI update?
+
+## Interview Practice
+
+31. Explain Redux Toolkit's value over classic Redux.
+32. Explain why reducers centralize business rules.
+33. Explain why UI components should dispatch actions instead of directly mutating shared state.
+34. Explain how selectors improve component readability.
+35. Explain the full Redux data flow in an interview.

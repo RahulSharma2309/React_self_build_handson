@@ -1,71 +1,71 @@
-# 03 — State, Events, And Derived Data Questions
+# 03 — State, Events, And Derived Data Interview Questions
 
-Use these after completing Story 03.
+Use these to prepare for generic questions about interactive UI state.
 
 ## Core Understanding
 
-1. What does “UI is a function of state” mean in this catalog?
+1. What does “UI is a function of state” mean in a React application?
 2. What is state in React, in your own words?
-3. Why does `searchTerm` belong in state?
-4. Why does `selectedCategory` belong in state?
-5. Why does `sortBy` belong in state?
-6. Why does `visibleProducts` not belong in state?
-7. What is the difference between source data, state, and derived data?
-8. What bug can happen when you store duplicate derived data in state?
-9. Why is `ProductCard.jsx` unchanged in this story?
-10. Which component owns the filter behavior right now, and why?
+3. Scenario: a user types in a search box. Why does that text usually belong in state?
+4. Scenario: a user chooses a category from a dropdown. Why does that selected value usually belong in state?
+5. Scenario: a user chooses a sort option. Why does that option usually belong in state?
+6. Why should a filtered list usually be derived instead of stored separately in state?
+7. What is the difference between source data, user state, and derived data?
+8. What bug can happen when duplicate derived data is stored in state?
+9. Why should an item-display component usually not know about filtering or sorting logic?
+10. Where should filter behavior live when one parent needs it to decide what to render?
 
 ## `useState`
 
-11. What does `useState('')` return?
-12. What is the purpose of a setter function like `setSearchTerm`?
-13. Why should you not write `searchTerm = 'robot'` directly?
+11. What does `useState(initialValue)` return?
+12. What is the purpose of a state setter function?
+13. Why should state not be reassigned directly like a normal variable?
 14. What happens after a setter function is called?
-15. Why does React not guarantee that state looks changed on the very next line after a setter call?
+15. Why is React state not guaranteed to look updated on the next line after calling a setter?
 16. When is `useState` a good fit?
 17. When is `useState` the wrong tool?
 
 ## Events And Controlled Inputs
 
 18. What is an event handler?
-19. What does `onChange` mean for an input?
-20. What does `event.target.value` contain?
+19. What does `onChange` mean for a text input?
+20. What does `event.target.value` usually contain?
 21. What makes an input controlled?
-22. Why does the search input need both `value` and `onChange`?
-23. What happens if you provide `value` but forget `onChange`?
-24. How is a controlled `<select>` similar to a controlled `<input>`?
-25. How would you debug an input that does not update while typing?
+22. Why does a controlled input need both `value` and `onChange`?
+23. What happens if an input has a `value` prop but no working `onChange`?
+24. How is a controlled `<select>` similar to a controlled text input?
+25. Scenario: an input appears frozen while typing. What would you check?
 
 ## Derived Values And JavaScript Methods
 
-26. Why do we calculate `categories` from `fallbackProducts`?
-27. Why does `categories` use `new Set(...)`?
-28. What does the spread operator `...` do in the categories line?
-29. Why do we normalize search text with `trim().toLowerCase()`?
+26. Why might dropdown options be derived from a data array?
+27. Why is `Set` useful when building unique dropdown options?
+28. What does the spread operator do when converting a `Set` back to an array?
+29. Why is it common to normalize user search text with `trim()` and `toLowerCase()`?
 30. What does `includes` check?
 31. What is the difference between `map` and `filter`?
-32. Why does the filter condition use `matchesSearch && matchesCategory`?
-33. What does `selectedCategory === 'All' || product.category === selectedCategory` mean?
-34. How does `sortBy === 'price-low'` change the sort result?
-35. Why can `sort` be dangerous if you call it directly on original data?
-36. Why is sorting safe in this implementation after `filter`?
+32. Why might a filter condition combine multiple booleans with `&&`?
+33. How would you represent “show all items OR match one selected value” in JavaScript logic?
+34. How does a low-to-high numeric sort usually work?
+35. Why can `sort` be dangerous if called directly on source data?
+36. How can you sort safely without mutating original data?
 
 ## Render And Debugging
 
-37. Walk through what happens after the user types `r` in the search input.
-38. Why does React re-render `App` after state changes?
-39. What values are recalculated on every render?
-40. How would you prove `visibleProducts` is recalculated from current state?
-41. How would you debug a product that should appear but does not?
-42. How would React DevTools help you inspect this story?
-43. What should the UI show when no products match?
-44. Why is an empty state better than a blank product grid?
+37. Walk through what happens after a user types one character into a controlled input.
+38. Why does React re-render after state changes?
+39. What kinds of values are recalculated on every render?
+40. How would you prove a visible list is recalculated from current state?
+41. Scenario: an expected item disappears after filtering. How would you debug it?
+42. How can React DevTools help inspect interactive state?
+43. What should the UI show when no items match a filter?
+44. Why is an empty state better than rendering a blank area?
 
 ## Interview Practice
 
-45. Explain controlled inputs to an interviewer using this story.
-46. Explain derived state to an interviewer using this story.
-47. Explain why storing only user choices is better than storing filtered products.
-48. Explain how you would add a new sort option.
-49. Explain how you would move this logic into a custom hook later.
-50. Explain this entire Story 03 implementation in two minutes.
+45. Explain controlled inputs to an interviewer with a generic form example.
+46. Explain derived data to an interviewer with a filtered-list example.
+47. Explain why storing only user choices is better than storing filtered results.
+48. Explain how you would add a new sort option to a list screen.
+49. Explain how you would later move filter behavior into a custom hook.
+50. Explain an interactive search/filter/sort implementation in two minutes.

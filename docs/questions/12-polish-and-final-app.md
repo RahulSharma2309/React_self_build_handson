@@ -1,46 +1,55 @@
-# 12 — Polish And Final App Questions
+# 12 — React Polish, Performance, And Architecture Interview Questions
 
-Use these after completing Story 12.
+Use these to prepare for generic final-round React architecture and production-readiness interviews.
 
-## Questions
+## Reliability And Error Handling
 
-1. What does polish mean beyond visual styling?
+1. What does “polish” mean beyond visual styling?
 2. What is an error boundary?
 3. What kind of errors can an error boundary catch?
-4. What kind of errors should still be handled with normal API error state?
-5. Why might `ProductCard` be wrapped in `memo`?
-6. When is `memo` not useful?
-7. What does `useMemo` remember?
-8. What does `useCallback` remember?
-9. Why should you not use `useMemo` and `useCallback` everywhere automatically?
-10. What is referential stability?
-11. Which values in this app are good candidates for derived memoized values?
-12. How would you measure whether a component is re-rendering too often?
-13. Why is accessibility part of final polish?
-14. What keyboard interactions should the cart drawer support?
-15. Why do visible focus states matter?
-16. What should happen when a form has validation errors?
-17. Why is responsive design important for a product catalog?
-18. What is the purpose of the `/learn` page?
-19. How does an in-app learning page help reinforce concepts?
-20. How would you review the final folder structure?
-21. What belongs in `api`, `components`, `hooks`, `pages`, `features`, and `utils`?
-22. How would you explain the complete app architecture in an interview?
-23. Can you trace product data from backend to card UI?
-24. Can you trace Add to Cart from button click to Redux state to cart drawer?
-25. Can you trace checkout from form submit to backend response to cleared cart?
-26. What feature would you add next to prove you understand the app?
-27. What tests would be most valuable after finishing the app?
-28. What bugs would you look for before calling the app complete?
-29. What would you refactor only after seeing repeated patterns?
-30. What are the top five React concepts this full rebuild taught you?
-31. What is the difference between a render error and an API error?
-32. Why do error boundaries not replace loading/error request state?
-33. What question should you ask before using `memo`?
-34. When can `useCallback` make code worse?
-35. What folder should backend request code live in?
-36. What folder should route-level screens live in?
-37. What folder should reusable behavior live in?
-38. How would you test keyboard accessibility?
-39. How would you trace product data from backend to UI?
-40. How would you explain the whole app architecture in an interview?
+4. What kind of errors should still be handled with normal async error state?
+5. Why do error boundaries not replace loading/error request state?
+6. What is the difference between a render error and an API error?
+7. Scenario: one widget crashes during render. What should the user experience be?
+8. Scenario: a request fails but the component renders correctly. Where should the error be handled?
+9. What bugs would you look for before calling a React screen complete?
+10. What tests would be most valuable before release?
+
+## Performance
+
+11. What does `memo` do?
+12. When is `memo` not useful?
+13. What does `useMemo` remember?
+14. What does `useCallback` remember?
+15. What is referential stability?
+16. Why should `useMemo` and `useCallback` not be added everywhere automatically?
+17. What question should you ask before using `memo`?
+18. When can `useCallback` make code harder without helping performance?
+19. What kinds of derived values may be good candidates for memoization?
+20. How would you measure whether a component re-renders too often?
+
+## Accessibility And UX
+
+21. Why is accessibility part of final polish?
+22. Why do visible focus states matter?
+23. How would you test keyboard accessibility?
+24. What should happen when a form has validation errors?
+25. How should modals, drawers, or overlays behave for keyboard users?
+26. Why is responsive design important for list and dashboard screens?
+27. Scenario: a button has only an icon. What accessibility concern appears?
+28. Scenario: an error appears visually but is not announced or associated with a field. What would you improve?
+29. What does good empty-state UX include?
+30. What does good loading-state UX include?
+
+## Architecture Review
+
+31. What belongs in an API/services folder?
+32. What belongs in a reusable components folder?
+33. What belongs in a pages/routes folder?
+34. What belongs in a hooks folder?
+35. What belongs in a feature-state folder?
+36. What belongs in a utilities folder?
+37. How would you review whether a folder structure is clear?
+38. What would you refactor only after seeing repeated patterns?
+39. What feature would you add next to prove you understand an app's architecture?
+40. How would you explain a complete React app architecture in an interview?
